@@ -1,0 +1,12 @@
+Vehicle - Reg: GEN111, Color: White
+Car - Reg: ABC123, Color: Red, Seats: 5
+Bike - Reg: XYZ789, Color: Black, Engine Capacity: 150cc
+Vehicle - Reg: GEN111, Color: White
+Car - Reg: ABC123, Color: Red, Seats: 5
+Bike - Reg: XYZ789, Color: Black, Engine Capacity: 150cc
+Vehicle - Reg: GEN111, Color: White
+Car - Reg: ABC123, Color: Red, Seats: 5
+Bike - Reg: XYZ789, Color: Black, Engine Capacity: 150cc
+Vehicle - Reg: GEN111, Color: White
+Car - Reg: ABC123, Color: Red, Seats: 5
+Bike - Reg: XYZ789, Color: Black, Engine Capacity: 150cc
