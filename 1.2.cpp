@@ -1,31 +1,104 @@
-#include <iostream>
-#include <ctime>
+ #include <iostream>
 using namespace std;
+
+#define SIZE 10
+
+class Stack {
+    int arr[SIZE];
+    int top;
+
+public:
+    Stack() {
+        top = -1;
+    }
+
+    void push(int x) {
+        if (top == SIZE - 1) {
+            cout << "Stack is full\n";
+            return;
+        }
+        top++;
+        arr[top] = x;
+    }
+
+    void pop() {
+        if (top == -1) {
+            cout << "Stack is empty\n";
+            return;
+        }
+        top--;
+    }
+
+    void display() {
+        if (top == -1) {
+            cout << "Stack is empty\n";
+            return;
+        }
+        cout << "Stack: ";
+        for (int i = top; i >= 0; i--) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+
+    void findMiddle() {
+        if (top == -1) {
+            cout << "Stack is empty\n";
+            return;
+        }
+        int mid = top / 2;
+        cout << "Middle element: " << arr[mid] << endl;
+    }
+
+    void reverseBottomHalf() {
+        if (top < 1) {
+            cout << "Not enough elements\n";
+            return;
+        }
+        int mid = top / 2;
+        for (int i = 0, j = mid; i < j; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        cout << "Bottom half reversed\n";
+    }
+};
+
 int main() {
-    srand(time(0));
-    int maxRange = 0;
-    int secretNumber, guess;
-    char difficulty;
-    cout << "Welcome to the Number Guessing Game!" << endl;
-    cout << "Choose your difficulty: Easy (e), Medium (m), Hard (h): ";
-    cin >> difficulty;
-    if (difficulty == 'e' || difficulty == 'E') {
-        maxRange = 8;
-    } else if (difficulty == 'm' || difficulty == 'M') {
-        maxRange = 30;
-    } else if (difficulty == 'h' || difficulty == 'H') {
-        maxRange = 50;
-    } else {
-        cout << "Invalid input! Please restart the game and choose a valid difficulty." << endl;
-        return 1;
-    }
-    secretNumber = rand() % maxRange + 1;
-    cout << "Guess a number between 1 and " << maxRange << ": ";
-    cin >> guess;
-    if (guess == secretNumber) {
-        cout << "Congratulations! You guessed the correct number." << endl;
-    } else {
-        cout << "Wrong guess! The correct number was " << secretNumber << "." << endl;
-    }
+    Stack s;
+    int choice, num;
+
+    do {
+        cout << "\nMenu:\n";
+        cout << "1. Push\n";
+        cout << "2. Pop\n";
+        cout << "3. Display Stack\n";
+        cout << "4. Find Middle Element\n";
+        cout << "5. Reverse Bottom Half\n";
+        cout << "6. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "Enter number to push: ";
+            cin >> num;
+            s.push(num);
+        } else if (choice == 2) {
+            s.pop();
+        } else if (choice == 3) {
+            s.display();
+        } else if (choice == 4) {
+            s.findMiddle();
+        } else if (choice == 5) {
+            s.reverseBottomHalf();
+        } else if (choice == 6) {
+            cout << "Exiting...\n";
+        } else {
+            cout << "Invalid choice\n";
+        }
+
+    } while (choice != 6);
+
     return 0;
 }
